@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Stitch Queen</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .admin-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .admin-sidebar {
+            background-color: #1a1a1a;
+            padding: 2rem 0;
+            position: sticky;
+            top: 60px;
+        }
+
+        .admin-sidebar ul {
+            list-style: none;
+        }
+
+        .admin-sidebar li {
+            margin: 0;
+        }
+
+        .admin-sidebar a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .admin-sidebar a:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-black);
+            border-left-color: var(--primary-gold);
+        }
+
+        .admin-sidebar a.active {
+            background-color: var(--primary-gold);
+            color: var(--primary-black);
+            border-left-color: var(--primary-gold);
+        }
+
+        .admin-content {
+            padding: 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .admin-card {
+            background-color: var(--primary-white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: var(--primary-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #f0d885 100%);
+            color: var(--primary-black);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .stat-card p {
+            margin: 0.5rem 0 0 0;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                position: static;
+                padding: 1rem 0;
+            }
+
+            .admin-sidebar a {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>✨ STITCH QUEEN ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="admin.html" class="nav-link active">Admin</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form (Initially Shown) -->
+    <section id="loginSection" style="padding: 4rem 0; display: none;">
+        <div class="container">
+            <h2 class="section-title">Admin Login</h2>
+            <div class="login-form">
+                <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                    <div class="form-group">
+                        <label for="adminEmail">Email *</label>
+                        <input type="email" id="adminEmail" name="email" placeholder="Enter admin email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Password *</label>
+                        <div style="position: relative;">
+                            <input type="password" id="adminPassword" name="password" placeholder="Enter password" required>
+                            <span style="position: absolute; right: 15px; top: 40px; cursor: pointer; color: #d4af37;" onclick="togglePasswordVisibility('adminPassword')">👁️</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard (Shown After Login) -->
+    <section id="adminDashboard" style="display: none;">
+        <div style="display: flex; height: calc(100vh - 60px);">
+            <!-- Sidebar -->
+            <div class="admin-sidebar">
+                <ul>
+                    <li><a href="#" class="active" onclick="showAdminSection('dashboard')">📊 Dashboard</a></li>
+                    <li><a href="#" onclick="showAdminSection('bookings')">📋 Bookings</a></li>
+                    <li><a href="#" onclick="showAdminSection('customers')">👥 Customers</a></li>
+                    <li><a href="#" onclick="showAdminSection('orders')">📦 Orders</a></li>
+                    <li><a href="#" onclick="showAdminSection('settings')">⚙️ Settings</a></li>
+                    <li><a href="#" onclick="handleAdminLogout()">🚪 Logout</a></li>
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div class="admin-content" style="flex: 1; overflow-y: auto;">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="admin-section">
+                    <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Welcome to Admin Dashboard</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>42</h3>
+                            <p>Total Bookings</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>28</h3>
+                            <p>Completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>12</h3>
+                            <p>Pending</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>2</h3>
+                            <p>Cancelled</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Recent Activity</h3>
+                        <p style="color: #2a2a2a;">Latest bookings and updates will appear here.</p>
+                    </div>
+                </div>
+
+                <!-- Bookings Section -->
+                <div id="bookings" class="admin-section" style="display: none;">
+                    <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Manage Bookings</h2>
+                    <div class="admin-card">
+                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">All Bookings</h3>
+                        <div style="overflow-x: auto;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>Service</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#001</td>
+                                        <td>Priya Sharma</td>
+                                        <td>Bridal</td>
+                                        <td>2026-06-15</td>
+                                        <td><span style="background-color: #4caf50; color: white; padding: 0.3rem 0.6rem; border-radius: 3px;">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#002</td>
+                                        <td>Deepika Singh</td>
+                                        <td>Maggam Work</td>
+                                        <td>2026-06-20</td>
+                                        <td><span style="background-color: #ff9800; color: white; padding: 0.3rem 0.6rem; border-radius: 3px;">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customers Section -->
+                <div id="customers" class="admin-section" style="display: none;">
+                    <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Manage Customers</h2>
+                    <div class="admin-card">
+                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Customer List</h3>
+                        <div style="overflow-x: auto;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Total Orders</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Priya Sharma</td>
+                                        <td>priya@email.com</td>
+                                        <td>(555) 123-4567</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deepika Singh</td>
+                                        <td>deepika@email.com</td>
+                                        <td>(555) 234-5678</td>
+                                        <td>3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="orders" class="admin-section" style="display: none;">
+                    <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Manage Orders</h2>
+                    <div class="admin-card">
+                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Order Management</h3>
+                        <p style="color: #2a2a2a;">View and manage all customer orders here.</p>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings" class="admin-section" style="display: none;">
+                    <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Settings</h2>
+                    <div class="admin-card">
+                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Admin Settings</h3>
+                        <form>
+                            <div class="form-group">
+                                <label>Business Name</label>
+                                <input type="text" value="Stitch Queen" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="info@stitchqueen.com" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 (555) 123-4567" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" value="123 Fashion Street, NY 10001" readonly>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Check if admin is logged in on page load
+        window.addEventListener('load', function() {
+            const isAdminLogged = localStorage.getItem('adminLoggedIn');
+            if (isAdminLogged === 'true') {
+                showAdminDashboard();
+            } else {
+                document.getElementById('loginSection').style.display = 'block';
+            }
+        });
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            // Simple validation (in production, this should be server-side)
+            if (email === 'admin@stitchqueen.com' && password === 'stitchqueen123') {
+                localStorage.setItem('adminLoggedIn', 'true');
+                showAdminDashboard();
+                alert('Login successful!');
+            } else {
+                alert('Invalid credentials. Use admin@stitchqueen.com / stitchqueen123');
+            }
+        }
+
+        function showAdminDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+        }
+
+        function showAdminSection(sectionId) {
+            event.preventDefault();
+            const sections = document.querySelectorAll('.admin-section');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+
+            // Update active nav link
+            const links = document.querySelectorAll('.admin-sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function handleAdminLogout() {
+            event.preventDefault();
+            localStorage.removeItem('adminLoggedIn');
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('adminLoginForm').reset();
+            alert('Logged out successfully!');
+        }
+    </script>
+</body>
+</html>
+

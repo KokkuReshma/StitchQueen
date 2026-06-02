@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Measurements - Stitch Queen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>✨ STITCH QUEEN ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="designs.html" class="nav-link">Designs</a></li>
+                <li><a href="bridal.html" class="nav-link">Bridal</a></li>
+                <li><a href="maggam.html" class="nav-link">Maggam Work</a></li>
+                
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link booking-btn">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 300px;">
+        <div class="hero-content">
+            <h2 class="hero-title">Body Measurements</h2>
+            <p class="hero-subtitle">Get Accurate Measurements for Perfect Fit</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Measurement Instructions -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Measurement Guide</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div style="background-color: #f5f5f5; padding: 2rem; border-radius: 10px;">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">💡 Tips for Accurate Measurements</h3>
+                    <ul style="color: #2a2a2a; line-height: 1.8;">
+                        <li>Wear fitted clothes when measuring</li>
+                        <li>Ask someone to help you measure</li>
+                        <li>Use a soft measuring tape</li>
+                        <li>Keep tape parallel to the ground</li>
+                        <li>Don't pull tape too tight</li>
+                        <li>Measure twice to confirm</li>
+                    </ul>
+                </div>
+
+                <div style="background-color: #f5f5f5; padding: 2rem; border-radius: 10px;">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">📍 Standard Measurements</h3>
+                    <ul style="color: #2a2a2a; line-height: 1.8;">
+                        <li><strong>Bust:</strong> Around fullest part of chest</li>
+                        <li><strong>Waist:</strong> Around narrowest part</li>
+                        <li><strong>Hip:</strong> Around fullest part of hips</li>
+                        <li><strong>Shoulder:</strong> From shoulder bone to shoulder bone</li>
+                        <li><strong>Length:</strong> From shoulder to desired length</li>
+                        <li><strong>Sleeve:</strong> From shoulder to wrist</li>
+                    </ul>
+                </div>
+
+                <div style="background-color: #f5f5f5; padding: 2rem; border-radius: 10px;">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">🎯 For Best Results</h3>
+                    <ul style="color: #2a2a2a; line-height: 1.8;">
+                        <li>Stand straight in front of mirror</li>
+                        <li>Don't hold your breath</li>
+                        <li>Keep arms relaxed at sides</li>
+                        <li>Remove thick clothing</li>
+                        <li>Record all measurements clearly</li>
+                        <li>Visit us in person for perfect fit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Measurements Form -->
+    <section style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Enter Your Measurements</h2>
+            <div class="form-container">
+                <form id="measurementsForm" onsubmit="handleFormSubmit(event, 'measurementsForm')">
+                    <h3 style="color: #1a1a1a; margin-bottom: 1.5rem; text-align: center;">Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="measureName">Name *</label>
+                        <input type="text" id="measureName" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="measureEmail">Email *</label>
+                        <input type="email" id="measureEmail" name="email" placeholder="Your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="measurePhone">Phone *</label>
+                        <input type="tel" id="measurePhone" name="phone" placeholder="Your phone number" required>
+                    </div>
+
+                    <h3 style="color: #1a1a1a; margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;">Body Measurements (in inches)</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="bust">Bust *</label>
+                            <input type="number" id="bust" name="bust" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="waist">Waist *</label>
+                            <input type="number" id="waist" name="waist" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hip">Hip *</label>
+                            <input type="number" id="hip" name="hip" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shoulder">Shoulder Width *</label>
+                            <input type="number" id="shoulder" name="shoulder" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="length">Full Length *</label>
+                            <input type="number" id="length" name="length" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sleeve">Sleeve Length *</label>
+                            <input type="number" id="sleeve" name="sleeve" placeholder="0.0" step="0.5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="neckSize">Neck Size</label>
+                            <input type="number" id="neckSize" name="neckSize" placeholder="0.0" step="0.5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="armhole">Armhole Depth</label>
+                            <input type="number" id="armhole" name="armhole" placeholder="0.0" step="0.5">
+                        </div>
+                    </div>
+
+                    <h3 style="color: #1a1a1a; margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;">Additional Information</h3>
+
+                    <div class="form-group">
+                        <label for="size">Size Category</label>
+                        <select id="size" name="size">
+                            <option value="">Select size</option>
+                            <option value="XS">Extra Small (XS)</option>
+                            <option value="S">Small (S)</option>
+                            <option value="M">Medium (M)</option>
+                            <option value="L">Large (L)</option>
+                            <option value="XL">Extra Large (XL)</option>
+                            <option value="XXL">XXL</option>
+                            <option value="XXXL">XXXL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bodyType">Body Type</label>
+                        <select id="bodyType" name="bodyType">
+                            <option value="">Select body type</option>
+                            <option value="Petite">Petite</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Tall">Tall</option>
+                            <option value="Curvy">Curvy</option>
+                            <option value="Athletic">Athletic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Special Notes / Fit Preferences</label>
+                        <textarea id="notes" name="notes" placeholder="Any specific fit preferences or areas to focus on..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Measurements</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-Person Measurement Option -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Get Professional Measurements</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: #2a2a2a; line-height: 1.8; margin-bottom: 2rem;">
+                    For the most accurate measurements and expert fitting advice, we recommend visiting our studio. Our professionals can take precise measurements and provide personalized styling recommendations.
+                </p>
+                <div class="cta-buttons">
+                    <a href="booking.html" class="cta-btn primary">Book Measurement Session</a>
+                    <a href="contact.html" class="cta-btn secondary">Find Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Chart -->
+    <section style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Standard Size Chart</h2>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Bust (in)</th>
+                            <th>Waist (in)</th>
+                            <th>Hip (in)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>XS</strong></td>
+                            <td>32-34</td>
+                            <td>24-26</td>
+                            <td>34-36</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S</strong></td>
+                            <td>34-36</td>
+                            <td>26-28</td>
+                            <td>36-38</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M</strong></td>
+                            <td>36-38</td>
+                            <td>28-30</td>
+                            <td>38-40</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L</strong></td>
+                            <td>38-40</td>
+                            <td>30-32</td>
+                            <td>40-42</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XL</strong></td>
+                            <td>40-42</td>
+                            <td>32-34</td>
+                            <td>42-44</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XXL</strong></td>
+                            <td>42-44</td>
+                            <td>34-36</td>
+                            <td>44-46</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Stitch Queen</h3>
+                <p>Your destination for luxury tailoring and custom designs.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="bridal.html">Bridal</a></li>
+                    <li><a href="maggam.html">Maggam Work</a></li>
+                    <li><a href="designs.html">Custom Designs</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📧 info@stitchqueen.com</p>
+                <p>📍 123 Fashion Street, NY 10001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stitch Queen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+

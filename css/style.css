@@ -1,0 +1,1821 @@
+/* ========================================
+   STITCH QUEEN - LUXURY TAILORING CSS
+   ======================================== */
+
+/* Root Variables */
+:root {
+    --primary-black: #1a1a1a;
+    --primary-gold: #d4af37;
+    --primary-pink: #e91e63;
+    --primary-white: #ffffff;
+    --light-gray: #f5f5f5;
+    --dark-gray: #2a2a2a;
+    --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary-black);
+    background-color: var(--primary-white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   ======================================== */
+
+.navbar {
+    background-color: var(--primary-black);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--primary-gold);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.logo h1:hover {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--primary-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-gold);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-gold);
+}
+
+.booking-btn {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.booking-btn:hover {
+    background-color: var(--primary-pink);
+    color: var(--primary-white);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-gold);
+    margin: 5px 0;
+    transition: var(--transition);
+    border-radius: 3px;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+    height: 600px;
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-gray) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.1) 0%, transparent 50%);
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--primary-white);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-gold);
+    font-weight: 300;
+}
+
+.hero-btn {
+    display: inline-block;
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.hero-btn:hover {
+    background-color: var(--primary-pink);
+    color: var(--primary-white);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(212,175,55,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+/* ========================================
+   SECTION STYLING
+   ======================================== */
+
+section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-black);
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-gold);
+    margin: 1rem auto;
+}
+
+/* ========================================
+   TRENDING DESIGNS SECTION
+   ======================================== */
+
+.trending-section {
+    background-color: var(--light-gray);
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Designs page specific overrides and design-card styles */
+.designs-gallery .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 373px);
+    justify-content: center;
+    gap: 22px;
+}
+
+.designs-gallery .design-card {
+    width: 373px;
+    height: 393px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff, #fcfbfa);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform 0.38s cubic-bezier(.2,.9,.3,1), box-shadow 0.38s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.designs-gallery .design-card img.design-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
+    -webkit-user-drag: none;
+}
+
+.designs-gallery .design-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.0) 55%, rgba(0,0,0,0.18) 100%);
+    opacity: 0;
+    transition: opacity 0.36s ease;
+}
+
+.designs-gallery .design-card:hover::after,
+.designs-gallery .design-card:focus-within::after {
+    opacity: 1;
+}
+
+.designs-gallery .design-card:hover img.design-img,
+.designs-gallery .design-card:focus-within img.design-img {
+    transform: scale(1.06);
+}
+
+/* Overlay for title and description */
+.designs-gallery .design-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 100%);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 280ms ease, transform 280ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.designs-gallery .design-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    letter-spacing: 0.02em;
+}
+
+.designs-gallery .design-desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.94);
+    line-height: 1.2;
+}
+
+/* Reveal overlay on hover/focus for desktop */
+.designs-gallery .design-card:hover .design-overlay,
+.designs-gallery .design-card:focus-within .design-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Always show overlay on small screens for readability */
+@media (max-width: 640px) {
+    .designs-gallery .design-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .designs-gallery .design-title { font-size: 1rem; }
+    .designs-gallery .design-desc { font-size: 0.9rem; }
+}
+
+.designs-gallery .design-card:focus {
+    outline: 2px solid rgba(212,175,55,0.16);
+    outline-offset: 6px;
+}
+
+/* Modal styles */
+.design-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+.design-modal[aria-hidden="false"] { display: flex; }
+
+.design-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(4px);
+    transition: opacity 240ms ease;
+}
+
+.design-modal-panel {
+    position: relative;
+    max-width: 92vw;
+    max-height: 90vh;
+    padding: 18px;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    background: linear-gradient(180deg,#ffffff,#fffaf8);
+    transform: translateY(24px) scale(.98);
+    transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+    z-index: 5;
+}
+
+.design-modal[aria-hidden="false"] .design-modal-panel {
+    transform: translateY(0) scale(1);
+}
+
+.design-modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.design-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+}
+
+.design-modal-close {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .designs-gallery .trending-grid { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .designs-gallery .trending-grid { grid-template-columns: 1fr; gap: 16px; }
+    .designs-gallery .design-card { width: 100%; height: 340px; max-width: none; }
+    .design-modal-panel { padding: 12px; }
+}
+
+.fashion-card,
+.trend-card {
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    background-color: var(--primary-white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.fashion-card:hover,
+.trend-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.fashion-card-media,
+.trend-image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(0,0,0,0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fashion-card-image,
+.trend-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+    background-color: #fafafa;
+}
+
+.fashion-card:hover .fashion-card-image,
+.trend-card:hover .trend-image img {
+    transform: scale(1.12);
+}
+
+.fashion-card-content,
+.trend-content {
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.fashion-card-content h3,
+.trend-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-black);
+}
+
+.fashion-card-content p,
+.trend-content p {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.fashion-card-tag,
+.trend-price {
+    display: inline-block;
+    color: var(--primary-gold);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.fashion-card-footer,
+.trend-content .trend-btn {
+    margin-top: auto;
+}
+
+.fashion-card-footer a,
+.trend-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 0.85rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fashion-card-footer a:hover,
+.trend-btn:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+    transform: translateY(-2px);
+}
+
+.fashion-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fashion-card:hover .fashion-card-overlay {
+    opacity: 1;
+}
+
+.fashion-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.gallery-item {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-item .fashion-card {
+    width: 100%;
+    max-width: 320px;
+}
+
+.gallery-overlay-text {
+    color: var(--primary-white);
+    text-align: center;
+    padding: 1rem;
+}
+
+.gallery-overlay-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.35rem;
+}
+
+/* Responsive adjustments for premium fashion cards */
+@media (max-width: 780px) {
+    .fashion-card,
+    .trend-card {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .fashion-card-media,
+    .trend-image {
+        height: 320px;
+    }
+
+    .trending-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fashion-card-media,
+    .trend-image {
+        height: 280px;
+    }
+
+    .trending-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .fashion-card-content,
+    .trend-content {
+        padding: 1.2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fashion-card-media,
+    .trend-image {
+        height: 60vw;
+    }
+
+    .trending-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .fashion-card-media { height: 65vw; }
+    .fashion-card-content { padding: 1rem; }
+}
+
+.trend-btn {
+    display: inline-block;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.trend-btn:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+}
+
+/* ========================================
+   BRIDAL SECTION
+   ======================================== */
+
+.bridal-section {
+    background-color: #fff9f2;
+    padding: 4rem 0;
+}
+
+.bridal-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.bridal-text {
+    max-width: 620px;
+}
+
+.bridal-text h3,
+.bridal-text .section-subtitle {
+    color: var(--primary-black);
+}
+
+.bridal-text .section-subtitle {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem;
+}
+
+.bridal-text p {
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+    line-height: 1.85;
+    font-size: 1.05rem;
+}
+
+.bridal-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding-left: 0;
+}
+
+.bridal-features li {
+    padding: 0.8rem 0;
+    color: var(--primary-black);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.bridal-features li:hover {
+    color: var(--primary-gold);
+    transform: translateX(6px);
+}
+
+.bridal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.bridal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.bridal-btn.primary {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.bridal-btn.secondary {
+    background-color: transparent;
+    color: var(--primary-black);
+    border: 2px solid var(--primary-black);
+}
+
+.bridal-btn.primary:hover,
+.bridal-btn.secondary:hover {
+    transform: translateY(-3px);
+}
+
+.bridal-btn.primary:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+}
+
+.bridal-btn.secondary:hover {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+.bridal-image {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bridal-image-card {
+    width: 100%;
+    max-width: 480px;
+    height: 560px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
+    position: relative;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0,0,0,0.1));
+}
+
+.bridal-image-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.2), transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bridal-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.bridal-image-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.02) saturate(1.08);
+}
+
+.bridal-image-card:hover {
+    transform: translateY(-6px);
+}
+
+.bridal-image-card,
+.bridal-btn,
+.bridal-features li {
+    transition: var(--transition);
+}
+
+    /* Bridal Collection card overrides */
+    .bridal-collection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 369px);
+        gap: 1.8rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .bridal-collection-grid .style-card-placeholder {
+        display: none;
+    }
+
+    .bridal-collection-grid .trend-card {
+        width: 369px;
+        max-width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+        transition: transform 0.32s ease, box-shadow 0.32s ease;
+        background-color: #fff;
+    }
+
+    .bridal-collection-grid .trend-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 26px 68px rgba(0, 0, 0, 0.22);
+    }
+
+    .bridal-collection-grid .fashion-card-media {
+        height: 399px;
+        min-height: 399px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #faf8f5;
+    }
+
+    .bridal-collection-grid .fashion-card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        transition: transform 0.55s ease;
+    }
+
+    .bridal-collection-grid .trend-card:hover .fashion-card-image {
+        transform: scale(1.03);
+    }
+
+    .bridal-collection-grid .fashion-card-content {
+        padding: 1.3rem 1.35rem 1.4rem;
+    }
+
+    .bridal-collection-grid .fashion-card-body h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.55rem;
+        color: var(--primary-black);
+    }
+
+    .bridal-collection-grid .fashion-card-body p {
+        color: var(--dark-gray);
+        margin-bottom: 1rem;
+        min-height: 3rem;
+    }
+
+    .bridal-collection-grid .fashion-card-tag {
+        color: var(--primary-gold);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+
+    .bridal-collection-grid .fashion-card-footer a {
+        background-color: var(--primary-black);
+        color: var(--primary-white);
+        border-radius: 999px;
+        padding: 0.9rem 1.4rem;
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .bridal-collection-grid .fashion-card-footer a:hover {
+        background-color: var(--primary-gold);
+        color: var(--primary-black);
+    }
+
+    @media (max-width: 1160px) {
+        .bridal-collection-grid {
+            grid-template-columns: repeat(2, minmax(320px, 1fr));
+        }
+    }
+
+    @media (max-width: 780px) {
+        .bridal-collection-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .bridal-collection-grid .trend-card {
+            width: 100%;
+        }
+
+        .bridal-collection-grid .fashion-card-media {
+            height: 360px;
+        }
+    }
+    
+
+    .bridal-text p {
+        font-size: 1rem;
+    }
+
+    .bridal-image-card {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 480 / 560;
+    }
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ========================================
+   MAGGAM WORK SECTION
+   ======================================== */
+
+.maggam-section {
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.maggam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.maggam-item {
+    background-color: var(--primary-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.maggam-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.maggam-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.maggam-item h3 {
+    color: var(--primary-black);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.maggam-item p {
+    color: var(--dark-gray);
+}
+
+.view-more-btn {
+    display: inline-block;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.view-more-btn:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+}
+
+/* ========================================
+   MAGGAM COLLECTION GRID (cards only)
+   ======================================== */
+
+.maggam-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 369px);
+    gap: 1.8rem;
+    justify-content: center;
+    margin-top: 1.6rem;
+}
+
+.maggam-collection-grid .trend-card {
+    width: 369px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+    transition: transform 0.32s ease, box-shadow 0.32s ease;
+    background: #fff;
+}
+
+.maggam-collection-grid .trend-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 78px rgba(0,0,0,0.22);
+}
+
+.maggam-collection-grid .fashion-card-media {
+    height: 407px;
+    min-height: 407px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbfaf9;
+}
+
+.maggam-collection-grid .fashion-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.maggam-collection-grid .trend-card:hover .fashion-card-image {
+    transform: scale(1.03);
+}
+
+.maggam-collection-grid .fashion-card-content {
+    padding: 1.1rem 1.25rem;
+}
+
+.maggam-collection-grid .fashion-card-body h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.maggam-collection-grid .fashion-card-body p { color: var(--dark-gray); margin-bottom: 0.6rem; min-height: 2.6rem; }
+.maggam-collection-grid .fashion-card-tag { color: var(--primary-gold); font-weight:700; display:inline-block; margin-bottom:0.6rem; }
+.maggam-collection-grid .fashion-card-footer a { width:100%; border-radius:999px; padding:0.85rem 1.2rem; background:var(--primary-black); color:var(--primary-white); display:inline-flex; align-items:center; justify-content:center; }
+.maggam-collection-grid .fashion-card-footer a:hover { background:var(--primary-gold); color:var(--primary-black); }
+
+@media (max-width: 1160px) {
+    .maggam-collection-grid { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
+}
+
+@media (max-width: 780px) {
+    .maggam-collection-grid { grid-template-columns: 1fr; }
+    .maggam-collection-grid .trend-card { width: 100%; }
+    .maggam-collection-grid .fashion-card-media { height: 360px; }
+}
+
+/* ========================================
+   REVIEWS SECTION
+   ======================================== */
+
+.reviews-section {
+    background-color: var(--primary-white);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-gold);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.stars {
+    color: var(--primary-gold);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: var(--dark-gray);
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.review-author {
+    color: var(--primary-black);
+    font-weight: 600;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-gray) 100%);
+    color: var(--primary-white);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-gold);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.cta-btn.primary {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+}
+
+.cta-btn.primary:hover {
+    background-color: var(--primary-pink);
+    color: var(--primary-white);
+    transform: translateY(-3px);
+}
+
+.cta-btn.secondary {
+    background-color: transparent;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+}
+
+.cta-btn.secondary:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--primary-gold);
+    padding-top: 1rem;
+    color: var(--light-gray);
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+.form-container {
+    background-color: var(--light-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-black);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--dark-gray);
+    border-radius: 5px;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background-color: var(--primary-gold);
+    color: var(--primary-black);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-pink);
+    color: var(--primary-white);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   GALLERY STYLES
+   ======================================== */
+
+.gallery-filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem 0 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.gallery-filter-btn {
+    background: linear-gradient(135deg, #111111 0%, #1e1e1e 100%);
+    color: #f7e8b3;
+    border: 1px solid rgba(212, 175, 55, 0.9);
+    padding: 0.95rem 1.55rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+.gallery-filter-btn:hover,
+.gallery-filter-btn.active {
+    background: linear-gradient(135deg, #d4af37 0%, #f7e0a6 42%, #b68e2e 100%);
+    color: #111111;
+    border-color: #f0de9b;
+    box-shadow: 0 14px 30px rgba(212, 175, 55, 0.28);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.25rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 422px;
+    height: 432px;
+    cursor: pointer;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.12);
+    background-color: #fdf9f2;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: var(--transition);
+    display: block;
+    background-color: #fdf9f2;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay-text {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.gallery-overlay-text h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.12rem;
+    letter-spacing: 0.08em;
+}
+
+.gallery-overlay-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* ========================================
+   BRIDAL SLIDER STYLES
+   ======================================== */
+.bridal-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 0 2rem;
+}
+
+.slides-wrapper {
+    width: 540px;
+    height: 400px;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+    background: #fdf9f2;
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    border-radius: 12px;
+}
+
+.slider-arrow {
+    background: linear-gradient(135deg,#111,#2a2a2a);
+    color: #f7e8b3;
+    border: 1px solid rgba(212,175,55,0.9);
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    font-size: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.slider-arrow:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg,#d4af37,#f7e0a6);
+    color: #111;
+}
+
+@media (max-width: 1100px) {
+    .slides-wrapper { width: 520px; height: 380px; }
+}
+
+@media (max-width: 780px) {
+    .bridal-slider { gap: 0.6rem; padding-bottom: 1rem; }
+    .slides-wrapper { width: 420px; height: 320px; }
+    .slider-arrow { width: 44px; height:44px; font-size:22px; }
+}
+
+@media (max-width: 420px) {
+    .slides-wrapper { width: 320px; height: 240px; }
+    .slider-arrow { display: none; }
+}
+
+@media (max-width: 1120px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .gallery-item {
+        height: 400px;
+    }
+}
+
+@media (max-width: 760px) {
+    .gallery-filter-bar {
+        position: static;
+        padding-top: 0;
+    }
+
+    .gallery-filter-buttons {
+        gap: 0.75rem;
+    }
+
+    .gallery-filter-btn {
+        width: 100%;
+        max-width: 260px;
+        padding: 0.85rem 1rem;
+        font-size: 0.88rem;
+    }
+
+    .gallery-item {
+        height: 360px;
+    }
+}
+
+@media (max-width: 520px) {
+    .gallery-filter-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0;
+    }
+
+    .gallery-item {
+        height: 320px;
+    }
+}
+
+.gallery-overlay-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.collections-section {
+    background: #ffffff;
+    color: #111;
+    padding: 4rem 0;
+}
+
+.collections-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+}
+
+.collections-intro .section-subtitle {
+    display: block;
+    color: #d4af37;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.collections-intro .section-description {
+    color: rgba(17, 17, 17, 0.75);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-top: 1rem;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+    gap: 1.75rem;
+    justify-items: center;
+}
+
+table th {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+table tr:hover {
+    background-color: var(--light-gray);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-black);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .nav-menu.active {
+        max-height: 500px;
+    }
+
+    .nav-menu li {
+        padding: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        height: 400px;
+    }
+
+    .bridal-content {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+
+    .trending-grid,
+    .maggam-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 0;
+    }
+
+    .bridal-text h3 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* ========================================
+   FASHION COLLECTIONS
+======================================== */
+
+.collections{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:60px 20px;
+    background:#f9f9f9;
+}
+
+.card{
+    width:320px;
+    background:#ffffff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    transition:0.4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    display:block;
+}
+
+.card h3{
+    font-size:1.4rem;
+    color:#1a1a1a;
+    padding:15px 20px 5px;
+}
+
+.card p{
+    color:#666;
+    padding:0 20px 20px;
+    line-height:1.6;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .collections{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:90%;
+    }
+
+}

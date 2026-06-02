@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Stitch Queen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>✨ STITCH QUEEN ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="designs.html" class="nav-link">Designs</a></li>
+                <li><a href="bridal.html" class="nav-link">Bridal</a></li>
+                <li><a href="maggam.html" class="nav-link">Maggam Work</a></li>
+                
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link booking-btn">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 300px;">
+        <div class="hero-content">
+            <h2 class="hero-title">Our Gallery</h2>
+            <p class="hero-subtitle">Showcase of Our Beautiful Creations</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+
+            <div class="gallery-filter-bar">
+                <div class="gallery-filter-buttons">
+                    <button class="gallery-filter-btn active" data-filter="all">All</button>
+                    <button class="gallery-filter-btn" data-filter="saree">Sarees</button>
+                    <button class="gallery-filter-btn" data-filter="casual">Casual Wear</button>
+                    <button class="gallery-filter-btn" data-filter="bridal">Bridal</button>
+                    <button class="gallery-filter-btn" data-filter="party">Party Wear</button>
+                </div>
+            </div>
+
+            <p style="text-align:center; color:var(--dark-gray); max-width:860px; margin:0 auto 2rem;">A curated selection of our signature tailoring and bridal craftsmanship.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="bridal">
+                    <img src="../images/Gallery/bridalgown.png" alt="Bridal Gown" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Bridal Gown</h3>
+                            <p>Regal bridal design in luxe fabrics and handcrafted details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="../images/Gallery/embroidereddress.png" alt="Embroidered Dress" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Embroidered Dress</h3>
+                            <p>Intricate embroidery with a modern silhouette.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bridal">
+                    <img src="../images/Gallery/pinkbridal.png" alt="Pink Bridal" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Pink Bridal</h3>
+                            <p>Soft romantic tones and luxurious bridal finishes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bridal">
+                    <img src="../images/Gallery/royalbridalwear.jfif" alt="Royal Bridal Wear" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Royal Bridal Wear</h3>
+                            <p>Statement ensembles designed for grand celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="casual">
+                    <img src="../images/Gallery/greendresscasualwear.png" alt="Green Dress" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Green Dress</h3>
+                            <p>Chic daywear with rich colors and sleek tailoring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="saree">
+                    <img src="../images/Gallery/silksaree.png" alt="Silk Saree" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Silk Saree</h3>
+                            <p>Luxurious silk saree with elegant drape and shine.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="../images/Gallery/designerparty%20wear.png" alt="Designer Party Wear" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Designer Party Wear</h3>
+                            <p>Statement party looks with premium fabric and modern silhouettes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="saree">
+                    <img src="../images/Gallery/traditionalsaree.png" alt="Traditional Saree" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Traditional Saree</h3>
+                            <p>Classic craftsmanship with a timeless floral motif.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="casual">
+                    <img src="../images/Gallery/casualwear.png" alt="Casual Wear" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Casual Wear</h3>
+                            <p>Comfortable everyday style with premium tailoring details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bridal">
+                    <img src="../images/Gallery/weddingcollection.png" alt="Wedding Collection" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Wedding Collection</h3>
+                            <p>Opulent bridal ensembles designed for unforgettable ceremonies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="../images/Gallery/designerblouse.jfif" alt="Designer Blouse" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Designer Blouse</h3>
+                            <p>Elegant party-ready blouse with rich embroidery details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="saree">
+                    <img src="../images/Gallery/purpleelegance.png" alt="Purple Elegance" />
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h3>Purple Elegance</h3>
+                            <p>Royal saree styling with luxurious tones and polished finish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Stitch Queen</h3>
+                <p>Your destination for luxury tailoring and custom designs.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="bridal.html">Bridal</a></li>
+                    <li><a href="maggam.html">Maggam Work</a></li>
+                    <li><a href="designs.html">Custom Designs</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📧 info@stitchqueen.com</p>
+                <p>📍 123 Fashion Street, NY 10001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stitch Queen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+

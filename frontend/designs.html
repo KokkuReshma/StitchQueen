@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs - Stitch Queen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>✨ STITCH QUEEN ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="designs.html" class="nav-link active">Designs</a></li>
+                <li><a href="bridal.html" class="nav-link">Bridal</a></li>
+                <li><a href="maggam.html" class="nav-link">Maggam Work</a></li>
+                
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link booking-btn">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 300px;">
+        <div class="hero-content">
+            <h2 class="hero-title">Custom Designs</h2>
+            <p class="hero-subtitle">Bring Your Dream Designs to Life</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Design Categories -->
+    <section class="designs-gallery">
+        <div class="container">
+            <h2 class="section-title">Our Design Collections</h2>
+            <div class="trending-grid">
+                <!-- Design image cards (keeps headings & content unchanged) -->
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/bold&vibrant.png" alt="Bold & Vibrant" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Bold & Vibrant</h3>
+                        <p class="design-desc">Bright colors with modern fashion appeal.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/classicsareedesigns.png" alt="Classic Saree Designs" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Classic Saree Designs</h3>
+                        <p class="design-desc">Timeless elegance with graceful traditional styling.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/designerlehenga.png" alt="Designer Lehenga" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Designer Lehenga</h3>
+                        <p class="design-desc">Royal craftsmanship with luxurious bridal detailing.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/embroideredcollections.png" alt="Embroidered Collections" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Embroidered Collection</h3>
+                        <p class="design-desc">Intricate embroidery with premium handcrafted finishes.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/indigo&traditional.png" alt="Indigo & Traditional" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Indigo & Traditional</h3>
+                        <p class="design-desc">Heritage-inspired fashion with contemporary elegance.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/minimalistchic.png" alt="Minimalist Chic" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Minimalistic Chic</h3>
+                        <p class="design-desc">Clean silhouettes with refined modern aesthetics.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/moderndresses.png" alt="Modern Dresses" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Modern Dresses</h3>
+                        <p class="design-desc">Trendy designs with sophisticated boutique styling.</p>
+                    </div>
+                </figure>
+
+                <figure class="design-card" tabindex="0">
+                    <img data-src="../images/Designs/natureinspired.png" alt="Nature Inspired" class="design-img" />
+                    <div class="design-overlay">
+                        <h3 class="design-title">Nature Inspired</h3>
+                        <p class="design-desc">Organic tones with artistic floral influences.</p>
+                    </div>
+                </figure>
+            </div>
+
+            <!-- Modal for full-size preview (scoped to designs page) -->
+            <div id="designModal" class="design-modal" aria-hidden="true">
+                <div class="design-modal-backdrop" data-close="true"></div>
+                <div class="design-modal-panel" role="dialog" aria-modal="true" aria-labelledby="designModalTitle">
+                    <button class="design-modal-close" aria-label="Close preview">✕</button>
+                    <div class="design-modal-content">
+                        <img src="" alt="Full preview" id="designModalImage" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Our Design Process</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">1️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Consultation</h3>
+                    <p style="color: #2a2a2a;">Discuss your ideas and preferences with our design team</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">2️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Sketching</h3>
+                    <p style="color: #2a2a2a;">Our designers create custom sketches based on your vision</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">3️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Fabric Selection</h3>
+                    <p style="color: #2a2a2a;">Choose from our premium fabric collection</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">4️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Creation</h3>
+                    <p style="color: #2a2a2a;">Our expert tailors craft your design with precision</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">5️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Fitting</h3>
+                    <p style="color: #2a2a2a;">Perfect fitting with multiple adjustments if needed</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">6️⃣</div>
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Delivery</h3>
+                    <p style="color: #2a2a2a;">Your perfect creation delivered to you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Create Your Custom Design?</h2>
+            <p>Start your design journey with our expert team</p>
+            <div class="cta-buttons">
+                <a href="booking.html" class="cta-btn primary">Book Design Consultation</a>
+                <a href="contact.html" class="cta-btn secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Stitch Queen</h3>
+                <p>Your destination for luxury tailoring and custom designs.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="bridal.html">Bridal</a></li>
+                    <li><a href="maggam.html">Maggam Work</a></li>
+                    <li><a href="designs.html">Custom Designs</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📧 info@stitchqueen.com</p>
+                <p>📍 123 Fashion Street, NY 10001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stitch Queen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Stitch Queen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>✨ STITCH QUEEN ✨</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="designs.html" class="nav-link">Designs</a></li>
+                <li><a href="bridal.html" class="nav-link">Bridal</a></li>
+                <li><a href="maggam.html" class="nav-link">Maggam Work</a></li>
+                
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link active booking-btn">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 300px;">
+        <div class="hero-content">
+            <h2 class="hero-title">Book Your Appointment</h2>
+            <p class="hero-subtitle">Consultation with Our Expert Designers</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Booking Form -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Booking Form</h2>
+            <div class="form-container">
+                <form id="bookingForm" onsubmit="handleFormSubmit(event, 'bookingForm')">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" oninput="formatPhoneNumber(this)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Preferred Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select a time slot</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="02:00">02:00 PM</option>
+                            <option value="03:00">03:00 PM</option>
+                            <option value="04:00">04:00 PM</option>
+                            <option value="05:00">05:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Type *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Bridal">Bridal Design</option>
+                            <option value="Custom Design">Custom Design</option>
+                            <option value="Maggam Work">Maggam Work</option>
+                            <option value="Saree Blouse">Saree Blouse</option>
+                            <option value="Casual Wear">Casual Wear</option>
+                            <option value="Alterations">Alterations</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event">Event Type (if applicable)</label>
+                        <input type="text" id="event" name="event" placeholder="Wedding, Party, Casual, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range (in USD) *</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range</option>
+                            <option value="100-300">$100 - $300</option>
+                            <option value="300-500">$300 - $500</option>
+                            <option value="500-800">$500 - $800</option>
+                            <option value="800-1200">$800 - $1200</option>
+                            <option value="1200+">$1200+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Notes / Design Ideas</label>
+                        <textarea id="notes" name="notes" placeholder="Tell us about your design ideas, preferences, or any special requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Why Book With Us?</h2>
+            <div class="maggam-grid">
+                <div class="maggam-item">
+                    <div class="maggam-icon">⏰</div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Choose from multiple time slots that work best for you</p>
+                </div>
+                <div class="maggam-item">
+                    <div class="maggam-icon">👥</div>
+                    <h3>Expert Team</h3>
+                    <p>Consultation with experienced designers and tailors</p>
+                </div>
+                <div class="maggam-item">
+                    <div class="maggam-icon">💡</div>
+                    <h3>Creative Ideas</h3>
+                    <p>Professional guidance for your dream design</p>
+                </div>
+                <div class="maggam-item">
+                    <div class="maggam-icon">✓</div>
+                    <h3>Quality Assured</h3>
+                    <p>Premium materials and meticulous craftsmanship</p>
+                </div>
+                <div class="maggam-item">
+                    <div class="maggam-icon">💰</div>
+                    <h3>Best Value</h3>
+                    <p>Competitive pricing without compromising quality</p>
+                </div>
+                <div class="maggam-item">
+                    <div class="maggam-icon">📞</div>
+                    <h3>24/7 Support</h3>
+                    <p>Always available to answer your queries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">How long is the consultation?</h3>
+                    <p style="color: #2a2a2a;">Our initial consultation is typically 30-45 minutes. During this time, we discuss your requirements, show fabric samples, and provide design suggestions.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">What should I bring to the consultation?</h3>
+                    <p style="color: #2a2a2a;">Bring any inspiration images, color preferences, and a clear idea of what you're looking for. It helps our designers understand your vision better.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">How long does the tailoring process take?</h3>
+                    <p style="color: #2a2a2a;">The timeline depends on the complexity of the design and current workload. Typically, it takes 2-4 weeks for custom designs and bridal wear.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Can I make changes after booking?</h3>
+                    <p style="color: #2a2a2a;">Yes, you can make changes before we start the actual tailoring. We offer unlimited consultations to ensure your satisfaction.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">What is your payment policy?</h3>
+                    <p style="color: #2a2a2a;">We typically require 50% advance payment to start the work and the remaining balance upon completion. Various payment methods are accepted.</p>
+                </div>
+
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: #f5f5f5; border-radius: 10px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 0.5rem;">Do you provide alterations?</h3>
+                    <p style="color: #2a2a2a;">Yes, we offer free alterations within the first month after delivery. This ensures perfect fit and customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need More Information?</h2>
+            <p>Feel free to reach out to us for any queries</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn primary">Contact Us</a>
+                <a href="measurements.html" class="cta-btn secondary">Get Measurements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Stitch Queen</h3>
+                <p>Your destination for luxury tailoring and custom designs.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="bridal.html">Bridal</a></li>
+                    <li><a href="maggam.html">Maggam Work</a></li>
+                    <li><a href="designs.html">Custom Designs</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📧 info@stitchqueen.com</p>
+                <p>📍 123 Fashion Street, NY 10001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stitch Queen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
