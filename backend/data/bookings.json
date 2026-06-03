@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "name": "ramya",
+    "email": "reshmareddy.k2000@gmail.com",
+    "phone": "778-065-5765",
+    "date": "2026-06-07",
+    "time": "04:00",
+    "service": "Bridal",
+    "event": "",
+    "budget": "1200+",
+    "notes": "",
+    "timestamp": "2026-06-03T13:16:03.426985",
+    "id": 1
+  },
+  {
+    "name": "ramya",
+    "email": "sxikxhsn@gmail.com",
+    "phone": "765-439-8760",
+    "date": "2026-06-27",
+    "time": "09:00",
+    "service": "Custom Design",
+    "event": "",
+    "budget": "1200+",
+    "notes": "",
+    "timestamp": "2026-06-03T13:16:35.492582",
+    "id": 2
+  }
+]
