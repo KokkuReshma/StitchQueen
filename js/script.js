@@ -199,7 +199,7 @@ function handleFormSubmit(event, formId) {
     const data = Object.fromEntries(formData);
 
     // Send to backend
-    fetch('http://localhost:5000/api/submit-form', {
+    fetch('https://stitchqueen.onrender.com/api/submit-form', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
