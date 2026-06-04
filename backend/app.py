@@ -62,10 +62,11 @@ def save_data(filename, data):
 # ROUTES
 # ==========================================
 
+from flask import render_template
+
 @app.route('/')
 def index():
-    """Home page"""
-    return "Stitch Queen API is running!"
+    return render_template('home.html')
 
 # Booking Routes
 @app.route('/api/bookings', methods=['GET'])
