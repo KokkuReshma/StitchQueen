@@ -24,7 +24,7 @@ Stitch Queen is a complete web solution for luxury tailoring services including:
 - 📊 Interactive admin dashboard
 
 ### Pages Included
-1. **home.html** - Hero section, trending designs, bridal collection, maggam work, reviews
+1. **index.html** - Hero section, trending designs, bridal collection, maggam work, reviews
 2. **gallery.html** - Image gallery with filtering options
 3. **designs.html** - Custom design collections and design process
 4. **bridal.html** - Bridal collection showcase with testimonials
@@ -48,7 +48,7 @@ Stitch Queen is a complete web solution for luxury tailoring services including:
 ```
 StitchQueen/
 ├── frontend/
-│   ├── home.html
+│   ├── index.html
 │   ├── gallery.html
 │   ├── designs.html
 │   ├── bridal.html
@@ -103,10 +103,10 @@ The API will start at `http://localhost:5000`
 
 #### 4. Open the Frontend
 ```bash
-# Open frontend/home.html in your web browser
+# Open frontend/index.html in your web browser
 # Or use a local server like:
 # python -m http.server 8000
-# Then visit http://localhost:8000/frontend/home.html
+# Then visit http://localhost:8000/frontend/index.html
 ```
 
 ## 🎨 Color Scheme
@@ -306,3 +306,4 @@ Created with ❤️ by Stitch Queen Team
 For support, contact: info@stitchqueen.com
 
 🧵 **Happy Stitching!** ✨
+

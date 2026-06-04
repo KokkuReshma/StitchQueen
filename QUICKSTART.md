@@ -24,13 +24,13 @@ python app.py
 ### Step 4: Open the Website
 Simply open in your browser:
 ```
-file:///C:/Users/Testing/OneDrive/Desktop/Tailor%20Website/stitchqueen/frontend/home.html
+file:///C:/Users/Testing/OneDrive/Desktop/Tailor%20Website/stitchqueen/frontend/index.html
 ```
 
 Or use Python's built-in server:
 ```bash
 python -m http.server 8000
-# Then visit: http://localhost:8000/frontend/home.html
+# Then visit: http://localhost:8000/frontend/index.html
 ```
 
 ---
@@ -39,7 +39,7 @@ python -m http.server 8000
 
 | Page | URL | Purpose |
 |------|-----|---------|
-| Home | `home.html` | Hero, trending designs, reviews |
+| Home | `index.html` | Hero, trending designs, reviews |
 | Gallery | `gallery.html` | Image showcase with filters |
 | Designs | `designs.html` | Custom design collections |
 | Bridal | `bridal.html` | Bridal collection |
@@ -197,7 +197,7 @@ python app.py
 ## 🚀 Next Steps
 
 1. ✅ Start backend
-2. ✅ Open home.html
+2. ✅ Open index.html
 3. ✅ Test all pages
 4. ✅ Try booking form
 5. ✅ Login to admin
@@ -209,3 +209,4 @@ python app.py
 **Enjoy your Stitch Queen website! 🧵✨**
 
 *Version 1.0 | May 2026*
+

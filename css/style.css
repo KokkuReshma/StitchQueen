@@ -31,6 +31,58 @@ body {
     line-height: 1.6;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.form-message {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-message.success {
+    background-color: #eafbea;
+    border: 1px solid #4caf50;
+    color: #1e4620;
+}
+
+.form-message.error {
+    background-color: #ffecec;
+    border: 1px solid #f44336;
+    color: #7f1d1d;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    text-decoration: none;
+    z-index: 9999;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1659,11 +1711,17 @@ table tr:hover {
     }
 
     .nav-menu.active {
-        max-height: 500px;
+        max-height: 640px;
     }
 
     .nav-menu li {
-        padding: 1rem;
+        width: 100%;
+        padding: 1rem 1.25rem;
+        text-align: center;
+    }
+
+    .nav-link {
+        width: 100%;
     }
 
     .hero-title {
@@ -1679,7 +1737,7 @@ table tr:hover {
     }
 
     .hero {
-        height: 400px;
+        height: 420px;
     }
 
     .bridal-content {

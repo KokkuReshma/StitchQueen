@@ -12,7 +12,7 @@
 ## 📄 Frontend Files (HTML Pages)
 
 ### Navigation & Layout
-- **[frontend/home.html](frontend/home.html)** - Landing page with hero and all sections
+- **[frontend/index.html](frontend/index.html)** - Landing page with hero and all sections
 - **[frontend/admin.html](frontend/admin.html)** - Admin dashboard with login
 
 ### Services & Portfolio
@@ -83,7 +83,7 @@
 ```
 stitchqueen/
 ├── frontend/                    ← All HTML pages
-│   ├── home.html              ← Main landing page
+│   ├── index.html              ← Main landing page
 │   ├── gallery.html           ← Image gallery
 │   ├── designs.html           ← Design collections
 │   ├── bridal.html            ← Bridal collection
@@ -142,7 +142,7 @@ Follow deployment guide in README.md
 
 | File | Lines | Purpose |
 |------|-------|---------|
-| home.html | 300+ | Landing page with hero, designs, reviews |
+| index.html | 300+ | Landing page with hero, designs, reviews |
 | gallery.html | 200+ | Gallery with category filters |
 | designs.html | 250+ | Design collections and process |
 | bridal.html | 250+ | Bridal collections and services |
@@ -281,7 +281,7 @@ This project teaches:
 2. **PROJECT_SUMMARY.md** (Overview - 10 min read)
 3. **README.md** (Details - 20 min read)
 4. **config.ini** (Customize settings)
-5. **frontend/home.html** (Review page structure)
+5. **frontend/index.html** (Review page structure)
 6. **css/style.css** (Understand styling)
 7. **js/script.js** (Check functionality)
 8. **backend/app.py** (Review API)
@@ -323,3 +323,4 @@ This project teaches:
 Start with [QUICKSTART.md](QUICKSTART.md) for immediate setup.
 
 Happy coding! 🚀
+

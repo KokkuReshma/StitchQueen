@@ -125,7 +125,7 @@ function initializeGalleryFilter() {
 
 // Update active navigation link
 function updateActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
@@ -168,38 +168,78 @@ function addScrollAnimations() {
 // Form Validation
 function validateForm(formId) {
     const form = document.getElementById(formId);
-    if (!form) return true;
+    if (!form) return false;
 
-    const inputs = form.querySelectorAll('input, textarea, select');
+    const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
 
-    inputs.forEach(input => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = '#e91e63';
+    requiredFields.forEach(field => {
+        const value = field.value.trim();
+        const parent = field.closest('.form-group');
+
+        if (!value) {
+            field.style.borderColor = '#e91e63';
+            if (parent) parent.classList.add('invalid');
+            isValid = false;
+        } else if (field.type === 'email' && !validateEmail(value)) {
+            field.style.borderColor = '#e91e63';
+            if (parent) parent.classList.add('invalid');
             isValid = false;
         } else {
-            input.style.borderColor = '#2a2a2a';
+            field.style.borderColor = '#2a2a2a';
+            if (parent) parent.classList.remove('invalid');
         }
     });
 
     return isValid;
 }
 
+function showFormMessage(formId, message, success = true) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    let messageBox = form.querySelector('.form-message');
+    if (!messageBox) {
+        messageBox = document.createElement('div');
+        messageBox.className = 'form-message';
+        form.prepend(messageBox);
+    }
+
+    messageBox.textContent = message;
+    messageBox.classList.toggle('success', success);
+    messageBox.classList.toggle('error', !success);
+    messageBox.classList.remove('hidden');
+}
+
+function clearFormMessage(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const messageBox = form.querySelector('.form-message');
+    if (messageBox) {
+        messageBox.classList.add('hidden');
+    }
+}
+
 // Handle form submission
 function handleFormSubmit(event, formId) {
     event.preventDefault();
 
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    clearFormMessage(formId);
+
     if (!validateForm(formId)) {
-        alert('Please fill in all required fields');
+        showFormMessage(formId, 'Please complete all required fields correctly.', false);
         return;
     }
 
-    const form = document.getElementById(formId);
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData.entries());
+    const endpoint = '/api/submit-form';
 
-    // Send to backend
-    fetch('https://stitchqueen.onrender.com/api/submit-form', {
+    fetch(endpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -209,50 +249,35 @@ function handleFormSubmit(event, formId) {
     .then(response => response.json())
     .then(result => {
         if (result.success) {
-            alert('Form submitted successfully!');
+            showFormMessage(formId, 'Your request has been submitted successfully. We will contact you soon.');
             form.reset();
         } else {
-            alert('Error submitting form: ' + result.message);
+            showFormMessage(formId, result.error || 'Unable to submit the form right now. Please try again later.', false);
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        alert('Error submitting form. Please try again.');
+        console.error('Form submission error:', error);
+        showFormMessage(formId, 'Network error. Please try again later.', false);
     });
 }
 
 // Format phone number
 function formatPhoneNumber(input) {
+    if (!input) return;
+
     let value = input.value.replace(/\D/g, '');
     if (value.length > 10) value = value.slice(0, 10);
-    
-    if (value.length > 6) {
-        value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6);
-    } else if (value.length > 3) {
-        value = value.slice(0, 3) + '-' + value.slice(3);
+
+    if (value.length > 5) {
+        value = value.slice(0, 5) + ' ' + value.slice(5);
     }
-    
+
     input.value = value;
 }
 
-// Format email with validation
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
-}
-
-// Price calculator for custom orders
-function calculatePrice() {
-    const fabricCost = parseFloat(document.getElementById('fabricCost')?.value || 0);
-    const embroideryHours = parseFloat(document.getElementById('embroideryHours')?.value || 0);
-    const laborRate = 50; // Per hour
-    
-    const total = fabricCost + (embroideryHours * laborRate);
-    
-    const resultElement = document.getElementById('priceResult');
-    if (resultElement) {
-        resultElement.textContent = `Estimated Total: $${total.toFixed(2)}`;
-    }
 }
 
 // Smooth scroll to section
@@ -260,21 +285,6 @@ function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-// Image preview for uploads
-function previewImage(input, previewId) {
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const preview = document.getElementById(previewId);
-            if (preview) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-        };
-        reader.readAsDataURL(input.files[0]);
     }
 }
 
@@ -286,183 +296,33 @@ function togglePasswordVisibility(inputId) {
     }
 }
 
-// Add to cart or booking
-function addToBooking(itemName, itemPrice) {
-    const booking = {
-        name: itemName,
-        price: itemPrice,
-        date: new Date().toISOString()
-    };
-    
-    let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-    bookings.push(booking);
-    localStorage.setItem('bookings', JSON.stringify(bookings));
-    
-    alert(`${itemName} added to booking!`);
-}
-
-// Get bookings from localStorage
-function getBookings() {
-    return JSON.parse(localStorage.getItem('bookings')) || [];
-}
-
-// Clear all bookings
-function clearBookings() {
-    if (confirm('Are you sure you want to clear all bookings?')) {
-        localStorage.removeItem('bookings');
-        alert('Bookings cleared!');
-        location.reload();
-    }
-}
-
-// Count bookings
-function getBookingCount() {
-    return getBookings().length;
-}
-
-// Update booking counter in navbar
-function updateBookingCounter() {
-    const count = getBookingCount();
-    const counterElement = document.getElementById('bookingCounter');
-    if (counterElement) {
-        counterElement.textContent = count;
-    }
-}
-
-// Format currency
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    }).format(amount);
-}
-
-// Get measurements from localStorage
-function getMeasurements() {
-    return JSON.parse(localStorage.getItem('measurements')) || {};
-}
-
-// Save measurements to localStorage
-function saveMeasurements(measurements) {
-    localStorage.setItem('measurements', JSON.stringify(measurements));
-    alert('Measurements saved successfully!');
-}
-
-// Get date range (for filtering)
-function getDateRange(days) {
-    const end = new Date();
-    const start = new Date(end.getTime() - (days * 24 * 60 * 60 * 1000));
-    return { start, end };
-}
-
-// Format date
-function formatDate(date) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString('en-US', options);
-}
-
-// Debounce function for search
-function debounce(func, delay) {
-    let timeoutId;
-    return function(...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func(...args), delay);
-    };
-}
-
-// Search functionality
-const searchFunction = debounce(function(query) {
-    console.log('Searching for:', query);
-    // Implement search logic here
-}, 300);
-
 // Lazy load images
 function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    if (!images.length) return;
+
+    const observer = new IntersectionObserver((entries, observerRef) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
                 img.src = img.dataset.src;
                 img.removeAttribute('data-src');
-                observer.unobserve(img);
+                observerRef.unobserve(img);
             }
         });
-    });
+    }, { rootMargin: '80px 0px' });
 
-    images.forEach(img => imageObserver.observe(img));
+    images.forEach(img => observer.observe(img));
 }
-
-// Notification system
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        background-color: ${type === 'success' ? '#4caf50' : '#f44336'};
-        color: white;
-        border-radius: 5px;
-        z-index: 10000;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        animation: slideIn 0.3s ease-out;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-// Add animation styles to document
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Export functions for use in global scope
 window.formatPhoneNumber = formatPhoneNumber;
 window.validateEmail = validateEmail;
-window.calculatePrice = calculatePrice;
 window.scrollToSection = scrollToSection;
-window.previewImage = previewImage;
 window.togglePasswordVisibility = togglePasswordVisibility;
-window.addToBooking = addToBooking;
-window.getBookings = getBookings;
-window.clearBookings = clearBookings;
-window.getBookingCount = getBookingCount;
-window.updateBookingCounter = updateBookingCounter;
-window.formatCurrency = formatCurrency;
-window.getMeasurements = getMeasurements;
-window.saveMeasurements = saveMeasurements;
-window.formatDate = formatDate;
 window.handleFormSubmit = handleFormSubmit;
-window.showNotification = showNotification;
+window.showFormMessage = showFormMessage;
+window.clearFormMessage = clearFormMessage;
 window.lazyLoadImages = lazyLoadImages;
 
 /* ========================================
@@ -521,3 +381,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDesignModal();
     lazyLoadImages();
 });
+

@@ -22,7 +22,7 @@ A complete, professional tailoring boutique website has been created with all re
 ## 📁 Complete File List
 
 ### Frontend (HTML Pages)
-1. ✅ **home.html** - Landing page with hero, trending designs, bridal collection, maggam work, reviews
+1. ✅ **index.html** - Landing page with hero, trending designs, bridal collection, maggam work, reviews
 2. ✅ **gallery.html** - Image gallery with category filtering
 3. ✅ **designs.html** - Custom design collections with 8 design categories
 4. ✅ **bridal.html** - Bridal collection with 8 bridal designs and testimonials
@@ -405,7 +405,7 @@ Included in code:
 
 2. **Open Frontend**
    ```
-   frontend/home.html
+   frontend/index.html
    ```
 
 3. **Access Admin**
@@ -513,3 +513,4 @@ Created with attention to detail and professional craftsmanship.
 ---
 
 Thank you for using Stitch Queen! 👑✨
+
